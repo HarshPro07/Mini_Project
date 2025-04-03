@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Signup - Farmer's Portal</title>
+  <link rel="stylesheet" href="signup.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <script defer src="signup.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>🌾Farmer's Portal🌾</h1>
+      <!-- Language Selection -->
+      <select id="language" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="mr">Marathi</option>
+      </select>
+    </div>
+
+
+
+<div id="signup-section" class="hidden">
+    <!-- Signup Form -->
+    <form id="signup-form">
+      <h2>Signup</h2>
+      <input type="text" id="name" placeholder="Enter Name" required>
+      <input type="email" id="signupEmail" placeholder="Enter Email" required>
+      <input type="password" id="signupPassword" placeholder="Enter Password" required>
+      <button type="button" onclick="signup()">Signup</button>
+      <div class="footer">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </form>
+  </div>

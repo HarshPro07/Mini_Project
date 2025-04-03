@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Product Finder</title>
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h1>🚜 Farmer's Product Finder</h1>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h2>Find Fresh Farm Products Near You</h2>
+        <p>Search for organic vegetables, dairy, grains, and more directly from farmers.</p>
+    </header>
+
+    <!-- Product Categories -->
+    <section class="categories">
+        <h3>Select a Category</h3>
+        <div class="grid-container">
+            <div class="category-card" onclick="filterProducts('all')">
+                🛒 All Products
+            </div>
+            <div class="category-card" onclick="filterProducts('vegetables')">
+                🥦 Vegetables
+            </div>
+            <div class="category-card" onclick="filterProducts('dairy')">
+                🥛 Dairy Products
+            </div>
+            <div class="category-card" onclick="filterProducts('grains')">
+                🌾 Grains
+            </div>
+            <div class="category-card" onclick="filterProducts('fruits')">
+                🍎 Fruits
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search our products">
+        <button id="search-btn">🌱 Search</button>
+    </section>
+
+    <!-- Carousel Section -->
+    <div class="carousel" id="carousel">
+        <img src="images/farm_image.jpg" alt="Ice Apples" width="40%" >
+        
+        <img src="images/farm_image.jpg" alt="Jackfruit">
+        <div class="carousel-buttons">
+            <button id="prev">❮</button>
+            <button id="next">❯</button>
+        </div>
+    </div>
+
+    <!-- Fast Moving Items -->
+    <div class="fast-moving">
+        <h3>Products</h3>
+        <div class="items" id="product-list">
+            <!-- Vegetables -->
+            <div class="card" data-category="vegetables">
+                <img src="onion.jpg" alt="Onion">
+                <p>Onion</p>
+                <select>
+                    <option>1 Kg</option>
+                </select>
+            </div>
+            <div class="card" data-category="vegetables">
+                <img src="tomato.jpg" alt="Tomato">
+                <p>Tomato</p>
+                <select>
+                    <option>1 Kg</option>
+                </select>
+            </div>
+            <div class="card" data-category="vegetables">
+                <img src="carrot.jpg" alt="Carrot">
+                <p>Carrot</p>
+                <select>
+                    <option>250 gm</option>
+                </select>
+            </div>
+
+            <!-- Dairy -->
+            <div class="card" data-category="dairy">
+                <img src="milk.jpg" alt="Milk">
+                <p>Milk</p>
+                <select>
+                    <option>1 Litre</option>
+                </select>
+            </div>
+            <div class="card" data-category="dairy">
+                <img src="cheese.jpg" alt="Cheese">
+                <p>Cheese</p>
+                <select>
+                    <option>500 gm</option>
+                </select>
+            </div>
+
+            <!-- Grains -->
+            <div class="card" data-category="grains">
+                <img src="rice.jpg" alt="Rice">
+                <p>Rice</p>
+                <select>
+                    <option>5 Kg</option>
+                </select>
+            </div>
+            <div class="card" data-category="grains">
+                <img src="wheat.jpg" alt="Wheat">
+                <p>Wheat</p>
+                <select>
+                    <option>5 Kg</option>
+                </select>
+            </div>
+
+            <!-- Fruits -->
+            <div class="card" data-category="fruits">
+                <img src="apple.jpg" alt="Apple">
+                <p>Apple</p>
+                <select>
+                    <option>1 Kg</option>
+                </select>
+            </div>
+            <div class="card" data-category="fruits">
+                <img src="banana.jpg" alt="Banana">
+                <p>Banana</p>
+                <select>
+                    <option>1 Dozen</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Farmer's Product Finder | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Carousel functionality
+        let index = 0;
+        const images = document.querySelectorAll(".carousel img");
+        const totalImages = images.length;
+
+        document.getElementById("next").addEventListener("click", () => {
+            images[index].style.display = "none";
+            index = (index + 1) % totalImages;
+            images[index].style.display = "block";
+        });
+
+        document.getElementById("prev").addEventListener("click", () => {
+            images[index].style.display = "none";
+            index = (index - 1 + totalImages) % totalImages;
+            images[index].style.display = "block";
+        });
+
+        // Search functionality
+        document.getElementById("searchInput").addEventListener("input", function () {
+            let filter = this.value.toLowerCase();
+            let cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                let text = card.textContent.toLowerCase();
+                card.style.display = text.includes(filter) ? "block" : "none";
+            });
+        });
+
+        // Filter products by category
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.card');
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize with all products visible
+        filterProducts('all');
+    </script>
+</body>
+</html>

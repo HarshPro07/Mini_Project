@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriSchemes - Government Schemes for Farmers</title>
+    <meta name="description" content="Discover government schemes designed to support farmers and agricultural growth across India." />
+    <meta name="author" content="AgriSchemes" />
+    <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="schemes.css">
+    
+    <!-- Feather Icons (alternative to Lucide) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <a href="/" class="navbar-logo">
+            <span class="text-primary">Agri</span>Schemes
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="navbar-menu">
+            <a href="/schemes" class="navbar-link">All Schemes</a>
+            <a href="/eligibility" class="navbar-link">Check Eligibility</a>
+            <a href="/resources" class="navbar-link">Resources</a>
+            <a href="/about" class="navbar-link">About</a>
+            <button class="btn btn-outline btn-sm navbar-search">
+              <i data-feather="search"></i>
+              <span>Search</span>
+            </button>
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button class="navbar-toggle" aria-label="Toggle menu">
+            <i data-feather="menu"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="navbar-mobile">
+        <div class="container">
+          <a href="/schemes" class="navbar-mobile-link">All Schemes</a>
+          <a href="/eligibility" class="navbar-mobile-link">Check Eligibility</a>
+          <a href="/resources" class="navbar-mobile-link">Resources</a>
+          <a href="/about" class="navbar-mobile-link">About</a>
+          <div class="navbar-mobile-search">
+            <i data-feather="search"></i>
+            <input type="search" placeholder="Search schemes...">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-bg">
+          <div class="hero-gradient"></div>
+          <div class="hero-circle hero-circle-1"></div>
+          <div class="hero-circle hero-circle-2"></div>
+        </div>
+
+        <div class="container">
+          <div class="hero-content">
+            <div class="badge fade-in">Empowering Farmers Across India</div>
+            <h1 class="hero-title fade-in">
+              Discover Government Schemes
+              <span class="text-primary">Made for Farmers</span>
+            </h1>
+            <p class="hero-description fade-in">
+              Navigate through all available government initiatives designed to support 
+              agricultural growth, financial assistance, and sustainable farming practices.
+            </p>
+            <div class="hero-actions fade-in">
+              <a href="/eligibility" class="btn btn-primary btn-lg">
+                Find Eligible Schemes
+                <i data-feather="arrow-right"></i>
+              </a>
+              <a href="/schemes" class="btn btn-outline btn-lg">
+                Browse All Schemes
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-cards fade-in">
+            <div class="glass-card">
+              <div class="card-icon">
+                <i data-feather="feather"></i>
+              </div>
+              <h3 class="card-title">Agricultural Support</h3>
+              <p class="card-text">Access schemes focused on crop improvement, irrigation, and farming techniques.</p>
+            </div>
+
+            <div class="glass-card">
+              <div class="card-icon">
+                <i data-feather="dollar-sign"></i>
+              </div>
+              <h3 class="card-title">Financial Assistance</h3>
+              <p class="card-text">Discover subsidies, loans, and insurance options available for farmers.</p>
+            </div>
+
+            <div class="glass-card">
+              <div class="card-icon">
+                <i data-feather="users"></i>
+              </div>
+              <h3 class="card-title">Community Programs</h3>
+              <p class="card-text">Join initiatives designed to strengthen farmer communities and knowledge sharing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Schemes Section -->
+      <section class="featured-schemes">
+        <div class="container">
+          <div class="section-header">
+            <div class="badge">Explore Available Schemes</div>
+            <h2 class="section-title">Featured Government Initiatives</h2>
+            <p class="section-description">
+              Discover key programs designed to support various aspects of farming and agriculture
+            </p>
+          </div>
+
+          <div class="schemes-tabs">
+            <div class="tabs-list">
+              <button class="tab active" data-tab="national">National</button>
+              <button class="tab" data-tab="state">State-level</button>
+              <button class="tab" data-tab="specialized">Specialized</button>
+            </div>
+
+            <div class="schemes-content">
+              <div class="schemes-grid active" id="national-schemes">
+                <!-- National schemes will be dynamically inserted here via JavaScript -->
+              </div>
+              
+              <div class="schemes-grid" id="state-schemes">
+                <!-- State schemes will be dynamically inserted here via JavaScript -->
+              </div>
+              
+              <div class="schemes-grid" id="specialized-schemes">
+                <!-- Specialized schemes will be dynamically inserted here via JavaScript -->
+              </div>
+
+              <div class="schemes-footer">
+                <a href="/schemes" class="btn btn-outline btn-lg">
+                  View All <span class="current-scheme-type">National</span> Schemes
+                  <i data-feather="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eligibility Checker Section -->
+      <section class="eligibility-checker">
+        <div class="container">
+          <div class="eligibility-grid">
+            <div class="eligibility-content">
+              <div class="badge">Personalized Recommendations</div>
+              <h2 class="eligibility-title">
+                Find Schemes You're <span class="text-primary">Eligible For</span>
+              </h2>
+              <p class="eligibility-description">
+                Answer a few questions about your farm and situation, and we'll identify government schemes 
+                you may qualify for based on your profile and requirements.
+              </p>
+              
+              <div class="eligibility-features">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i data-feather="check-circle"></i>
+                  </div>
+                  <div>
+                    <h3 class="feature-title">Personalized Recommendations</h3>
+                    <p class="feature-text">Get schemes that match your specific farming situation</p>
+                  </div>
+                </div>
+                
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i data-feather="check-circle"></i>
+                  </div>
+                  <div>
+                    <h3 class="feature-title">Save Time Researching</h3>
+                    <p class="feature-text">Quickly find relevant schemes instead of searching manually</p>
+                  </div>
+                </div>
+                
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i data-feather="check-circle"></i>
+                  </div>
+                  <div>
+                    <h3 class="feature-title">Application Guidance</h3>
+                    <p class="feature-text">Get information on how to apply for each recommended scheme</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="eligibility-form-container">
+              <div class="eligibility-card">
+                <div class="eligibility-card-header">
+                  <h3 class="eligibility-card-title">Eligibility Checker</h3>
+                  <div class="steps-indicator">
+                    <span class="step active"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                  </div>
+                </div>
+                
+                <div class="eligibility-card-body">
+                  <!-- Step 1 -->
+                  <div class="eligibility-step active" id="step-1">
+                    <h3 class="step-title">Location Information</h3>
+                    
+                    <div class="form-group">
+                      <label for="state">State</label>
+                      <div class="select-wrapper">
+                        <select id="state" name="state">
+                          <option value="" disabled selected>Select your state</option>
+                          <option value="andhra-pradesh">Andhra Pradesh</option>
+                          <option value="assam">Assam</option>
+                          <option value="bihar">Bihar</option>
+                          <option value="gujarat">Gujarat</option>
+                          <option value="karnataka">Karnataka</option>
+                          <option value="kerala">Kerala</option>
+                          <option value="madhya-pradesh">Madhya Pradesh</option>
+                          <option value="maharashtra">Maharashtra</option>
+                          <option value="punjab">Punjab</option>
+                          <option value="tamil-nadu">Tamil Nadu</option>
+                          <option value="uttar-pradesh">Uttar Pradesh</option>
+                          <option value="west-bengal">West Bengal</option>
+                        </select>
+                        <i data-feather="chevron-down"></i>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="district">District</label>
+                      <input type="text" id="district" name="district" placeholder="Enter your district">
+                    </div>
+                    
+                    <div class="form-actions">
+                      <button type="button" class="btn btn-primary btn-block next-step">
+                        Continue
+                        <i data-feather="arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <!-- Step 2 -->
+                  <div class="eligibility-step" id="step-2">
+                    <h3 class="step-title">Farm Details</h3>
+                    
+                    <div class="form-group">
+                      <label for="landSize">Land Size (in acres)</label>
+                      <input type="number" id="landSize" name="landSize" placeholder="Enter land size">
+                    </div>
+                    
+                    <div class="form-group">
+                      <label>Land Ownership</label>
+                      <div class="radio-group">
+                        <div class="radio-item">
+                          <input type="radio" id="owned" name="landOwnership" value="owned">
+                          <label for="owned">Owned Land</label>
+                        </div>
+                        <div class="radio-item">
+                          <input type="radio" id="leased" name="landOwnership" value="leased">
+                          <label for="leased">Leased Land</label>
+                        </div>
+                        <div class="radio-item">
+                          <input type="radio" id="both" name="landOwnership" value="both">
+                          <label for="both">Both Owned & Leased</label>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="farmerCategory">Farmer Category</label>
+                      <div class="select-wrapper">
+                        <select id="farmerCategory" name="farmerCategory">
+                          <option value="" disabled selected>Select your category</option>
+                          <option value="marginal">Marginal Farmer (&lt; 1 hectare)</option>
+                          <option value="small">Small Farmer (1-2 hectares)</option>
+                          <option value="medium">Medium Farmer (2-10 hectares)</option>
+                          <option value="large">Large Farmer (&gt; 10 hectares)</option>
+                        </select>
+                        <i data-feather="chevron-down"></i>
+                      </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                      <button type="button" class="btn btn-outline prev-step">Back</button>
+                      <button type="button" class="btn btn-primary next-step">
+                        Continue
+                        <i data-feather="arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <!-- Step 3 -->
+                  <div class="eligibility-step" id="step-3">
+                    <h3 class="step-title">Farming Information</h3>
+                    
+                    <div class="form-group">
+                      <label for="crop">Primary Crop</label>
+                      <div class="select-wrapper">
+                        <select id="crop" name="crop">
+                          <option value="" disabled selected>Select your primary crop</option>
+                          <option value="rice">Rice</option>
+                          <option value="wheat">Wheat</option>
+                          <option value="maize">Maize</option>
+                          <option value="millet">Millet</option>
+                          <option value="pulses">Pulses</option>
+                          <option value="oilseeds">Oilseeds</option>
+                          <option value="sugarcane">Sugarcane</option>
+                          <option value="cotton">Cotton</option>
+                          <option value="fruits">Fruits</option>
+                          <option value="vegetables">Vegetables</option>
+                        </select>
+                        <i data-feather="chevron-down"></i>
+                      </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                      <button type="button" class="btn btn-outline prev-step">Back</button>
+                      <button type="button" class="btn btn-primary" id="find-schemes">
+                        Find Schemes
+                        <i data-feather="filter"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3 class="footer-logo"><span class="text-primary">Agri</span>Schemes</h3>
+            <p class="footer-description">
+              Your one-stop resource for navigating government schemes and initiatives designed to 
+              support farmers and agricultural growth across India.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i data-feather="facebook"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i data-feather="twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i data-feather="instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="YouTube">
+                <i data-feather="youtube"></i>
+              </a>
+            </div>
+          </div>
+          
+          
+          <div class="footer-col">
+            <h3 class="footer-heading">Contact Information</h3>
+            <ul class="footer-contact">
+              <li>Ministry of Agriculture & Farmers Welfare</li>
+              <li>Krishi Bhawan, New Delhi - 110001</li>
+              <li>Email: info@agrischemes.gov.in</li>
+              <li>Helpline: 1800-111-222</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p class="copyright">
+            © <span id="current-year"></span> AgriSchemes. All rights reserved.
+          </p>
+          
+          <div class="footer-legal">
+            <a href="/terms">Terms of Service</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/disclaimer">Disclaimer</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="schemesd.js"></script>
+    <script src="schemes.js"></script>
+  </body>
+</html>
