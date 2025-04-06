@@ -43,6 +43,9 @@
             <div class="category-card" onclick="filterProducts('fruits')">
                 🍎 Fruits
             </div>
+            <div class="category-card" onclick="filterProducts('Pesticides')">
+            🛡️ Pesticides
+            </div>
         </div>
     </section>
 
@@ -54,13 +57,16 @@
 
     <!-- Carousel Section -->
     <div class="carousel" id="carousel">
-        <img src="images/farm_image.jpg" alt="Ice Apples" width="40%" >
+        <img src="images\Offer'.jpg" alt="Ice Apples" width="40%" >
         
-        <img src="images/farm_image.jpg" alt="Jackfruit">
-        <div class="carousel-buttons">
+        <img src="images\Offer2.jpg" alt="Jackfruit">
+        <img src="images\offer3.jpg" alt="Ice Apples" width="40%" >
+        
+        <img src="images\farm-banner.jpg" alt="Jackfruit">
+       <!-- <div class="carousel-buttons">
             <button id="prev">❮</button>
             <button id="next">❯</button>
-        </div>
+        </div>-->
     </div>
 
     <!-- Fast Moving Items -->
@@ -69,76 +75,104 @@
         <div class="items" id="product-list">
             <!-- Vegetables -->
             <div class="card" data-category="vegetables">
-                <img src="onion.jpg" alt="Onion">
+                <img src="images\Onion.jpg" alt="Onion">
                 <p>Onion</p>
-                <select>
-                    <option>1 Kg</option>
-                </select>
+                
             </div>
             <div class="card" data-category="vegetables">
-                <img src="tomato.jpg" alt="Tomato">
+                <img src="images\Tomato.jpg" alt="Tomato">
                 <p>Tomato</p>
-                <select>
-                    <option>1 Kg</option>
-                </select>
+                
             </div>
             <div class="card" data-category="vegetables">
-                <img src="carrot.jpg" alt="Carrot">
+                <img src="images\carrot.jpg" alt="Carrot">
                 <p>Carrot</p>
-                <select>
-                    <option>250 gm</option>
-                </select>
+               
             </div>
 
             <!-- Dairy -->
             <div class="card" data-category="dairy">
-                <img src="milk.jpg" alt="Milk">
+                <img src="images\Milk.jpg" alt="Milk">
                 <p>Milk</p>
-                <select>
-                    <option>1 Litre</option>
-                </select>
+                
             </div>
             <div class="card" data-category="dairy">
-                <img src="cheese.jpg" alt="Cheese">
+                <img src="images\Cheese.jpg" alt="Cheese">
                 <p>Cheese</p>
-                <select>
-                    <option>500 gm</option>
-                </select>
+                
             </div>
 
             <!-- Grains -->
             <div class="card" data-category="grains">
-                <img src="rice.jpg" alt="Rice">
+                <img src="images\Rice.jpg" alt="Rice">
                 <p>Rice</p>
-                <select>
-                    <option>5 Kg</option>
-                </select>
+                
             </div>
             <div class="card" data-category="grains">
-                <img src="wheat.jpg" alt="Wheat">
+                <img src="images\Wheat.jpg" alt="Wheat">
                 <p>Wheat</p>
-                <select>
-                    <option>5 Kg</option>
-                </select>
+                
             </div>
 
             <!-- Fruits -->
             <div class="card" data-category="fruits">
-                <img src="apple.jpg" alt="Apple">
+                <img src="images\Apple.jpg" alt="Apple">
                 <p>Apple</p>
-                <select>
-                    <option>1 Kg</option>
-                </select>
+              
             </div>
             <div class="card" data-category="fruits">
-                <img src="banana.jpg" alt="Banana">
+                <img src="images\Banana.png" alt="Banana">
                 <p>Banana</p>
-                <select>
-                    <option>1 Dozen</option>
-                </select>
+               
             </div>
+            <div class="card" data-category="Pesticides">
+                <img src="images\Pesticicde.jpg alt="Pesticicde">
+                <p>Pesticide</p>
+                
+            </div>
+            
         </div>
     </div>
+    <!-- Product Details Modal -->
+<!--<div id="productDetailsModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h3 id="productTitle">Product Name</h3>
+        <p id="productSeller">Seller: John Doe</p>
+        <p id="productPrice">Price: ₹100</p>
+        <button id="buyButton" class="buy-button">Buy Now</button>
+    </div>
+</div>-->
+
+<!-- Product Details Modal -->
+<div id="productDetailsModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h3 id="productTitle">Product Name</h3>
+        <div id="sellerList">
+            <!-- Seller details will be dynamically added here -->
+        </div>
+    </div>
+</div>
+
+    <!-- Testimonials Section -->
+<section class="testimonials">
+    <h3>What Our Customers Say</h3>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <p>"The freshest vegetables I've ever bought! Highly recommend this platform."</p>
+            <p>- Ramesh, Pune</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"I love the variety of products available. The quality is top-notch."</p>
+            <p>- Priya, Mumbai</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"Buying directly from farmers has never been easier. Great experience!"</p>
+            <p>- Ankit, Delhi</p>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>
@@ -148,22 +182,25 @@
     <!-- JavaScript -->
     <script>
         // Carousel functionality
-        let index = 0;
-        const images = document.querySelectorAll(".carousel img");
-        const totalImages = images.length;
+        // Carousel functionality
+let index = 0;
+const images = document.querySelectorAll(".carousel img");
+const totalImages = images.length;
 
-        document.getElementById("next").addEventListener("click", () => {
-            images[index].style.display = "none";
-            index = (index + 1) % totalImages;
-            images[index].style.display = "block";
-        });
+// Function to show the next image
+function showNextImage() {
+    images[index].style.display = "none"; // Hide the current image
+    index = (index + 1) % totalImages; // Move to the next image (loop back to the first image if at the end)
+    images[index].style.display = "block"; // Show the next image
+}
 
-        document.getElementById("prev").addEventListener("click", () => {
-            images[index].style.display = "none";
-            index = (index - 1 + totalImages) % totalImages;
-            images[index].style.display = "block";
-        });
+// Initialize the carousel by showing the first image
+images.forEach((img, i) => {
+    img.style.display = i === 0 ? "block" : "none"; // Show only the first image
+});
 
+// Automatically move to the next image every 3 seconds
+setInterval(showNextImage, 3000); // Change 3000 to 5000 for 5 seconds
         // Search functionality
         document.getElementById("searchInput").addEventListener("input", function () {
             let filter = this.value.toLowerCase();
@@ -188,6 +225,140 @@
 
         // Initialize with all products visible
         filterProducts('all');
-    </script>
+
+
+        // JavaScript for Product Details Modal
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        const productCards = document.querySelectorAll(".card");
+        const productDetailsModal = document.getElementById("productDetailsModal");
+        const closeModal = document.getElementById("closeModal");
+        const productTitle = document.getElementById("productTitle");
+        const sellerList = document.getElementById("sellerList");
+
+        // Example product data with multiple sellers and specific quantities
+        const productData = {
+            onion: [
+                { seller: "Farmer A", basePrice: 50, unit: "Kg", market: "Pune Market", quantities: [0.25, 0.5, 1, 2] },
+                { seller: "Farmer B", basePrice: 55, unit: "Kg", market: "Mumbai Market", quantities: [0.25, 0.5, 1, 2] }
+            ],
+            tomato: [
+                { seller: "Farmer C", basePrice: 40, unit:"Kg", market: "Delhi Market",quantities:[0.25,0.5,1,2] },
+                { seller: "Farmer D", basePrice: 45 ,unit: "Kg", market: "Chennai Market",quantities:[0.25,0.5,1,2] }
+            ],
+            carrot: [
+                { seller: "Farmer E", basePrice: 30 , unit:"Kg", market: "Bangalore Market",quantities:[0.25,0.5,1,2] },
+                { seller: "Farmer F", basePrice: 35 ,unit:"Kg", market: "Hyderabad Market",quantities:[0.25,0.5,1,2] }
+            ],
+            milk: [
+                { seller: "Farmer G", basePrice: 60, unit: "Litre", market: "Pune Market", quantities: [0.5, 1, 2] },
+                { seller: "Farmer H", basePrice: 65, unit: "Litre", market: "Mumbai Market", quantities: [0.5, 1, 2] }
+            ],
+            rice: [
+                { seller: "Farmer K", basePrice: 40, unit: "Kg", market: "Delhi Market", quantities: [1, 5, 10] },
+                { seller: "Farmer L", basePrice: 42, unit: "Kg", market: "Chennai Market", quantities: [1, 5, 10] }
+            ],
+            cheese: [
+                { seller: "Farmer I", basePrice: 250, unit: "500 gm", market: "Delhi Market", quantities: [1, 2] },
+                { seller: "Farmer J", basePrice: 260, unit: "500 gm", market: "Chennai Market", quantities: [1, 2] }
+            ],
+            wheat: [
+                { seller: "Farmer M", basePrice: 180 ,unit: "Kg", market: "Pune Market" ,quantities:[1,2,5,10,20] },
+                { seller: "Farmer N", basePrice: 190 ,unit: "Kg", market: "Mumbai Market",quantities:[1,2,5,10,20] }
+            ],
+            apple: [
+                { seller: "Farmer O", basePrice: 120 ,unit: "Kg", market: "Delhi Market",quantities:[0.25,0.5,1] },
+                { seller: "Farmer P", basePrice:130, unit:"Kg", market: "Chennai Market",quantities:[0.25,0.5,1] }
+            ],
+            banana: [
+                { seller: "Farmer Q", basePrice: 50 ,unit: "Dozen", market: "Banglore Market",quantities:[0.25,0.5,1] },
+                { seller: "Farmer R", basePrice: 55 ,unit: "Dozen", market: "Hyderabad Market",quantities:[0.25,0.5,1] }
+            ],
+            pesticide: [
+                { seller: "Farmer S", basePrice: 500 ,unit:"Kg", market: "Pune Market",quantities:[1,2,4,5,10] },
+                { seller: "Farmer T", basePrice: 520 , unit:"Kg", market: "Mumbai Market",quantities:[1,2,4,5,10] }
+            ]
+        };
+
+        // Function to open the modal with product details
+        function openModal(productName) {
+            const sellers = productData[productName.toLowerCase()];
+            if (sellers) {
+                productTitle.textContent = productName;
+                sellerList.innerHTML = ""; // Clear previous seller list
+
+                // Create a dropdown for quantity selection
+                const quantitySelect = document.createElement("select");
+                quantitySelect.classList.add("quantity-select");
+
+                // Populate the dropdown with the quantities of the first seller (assuming all sellers have the same quantities)
+                sellers[0].quantities.forEach(quantity => {
+                    const option = document.createElement("option");
+                    option.value = quantity;
+                    option.textContent = `${quantity} ${sellers[0].unit}`;
+                    quantitySelect.appendChild(option);
+                });
+
+                // Add quantity dropdown to the modal
+                sellerList.appendChild(quantitySelect);
+
+                // Function to update seller info based on selected quantity
+                function updateSellerInfo(selectedQuantity) {
+                    sellerList.innerHTML = ""; // Clear previous seller info
+                    sellerList.appendChild(quantitySelect); // Re-add the quantity dropdown
+
+                    sellers.forEach(seller => {
+                        const sellerDiv = document.createElement("div");
+                        sellerDiv.classList.add("seller-info");
+
+                        const price = seller.basePrice * selectedQuantity;
+
+                        sellerDiv.innerHTML = `
+                            <div class="seller-details">
+                                <p><strong>Seller:</strong> ${seller.seller}</p>
+                                <p><strong>Market:</strong> ${seller.market}</p>
+                                <p><strong>Price:</strong> ₹${price} (${selectedQuantity} ${seller.unit})</p>
+                            </div>
+                            <button class="buy-button">Buy Now</button>
+                        `;
+
+                        sellerList.appendChild(sellerDiv);
+                    });
+                }
+
+                // Initialize seller info with default quantity
+                updateSellerInfo(quantitySelect.value);
+
+                // Update seller info when quantity changes
+                quantitySelect.addEventListener("change", (event) => {
+                    const selectedQuantity = parseFloat(event.target.value);
+                    updateSellerInfo(selectedQuantity);
+                });
+
+                productDetailsModal.style.display = "flex"; // Show the modal
+            }
+        }
+
+        // Add click event listeners to product cards
+        productCards.forEach((card) => {
+            card.addEventListener("click", () => {
+                const productName = card.querySelector("p").textContent; // Get product name from the card
+                openModal(productName);
+            });
+        });
+
+        // Close the modal when the close button is clicked
+        closeModal.addEventListener("click", () => {
+            productDetailsModal.style.display = "none"; // Hide the modal
+        });
+
+        // Close the modal when clicking outside the modal content
+        window.addEventListener("click", (event) => {
+            if (event.target === productDetailsModal) {
+                productDetailsModal.style.display = "none"; // Hide the modal
+            }
+        });
+    });
+</script>
 </body>
 </html>

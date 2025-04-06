@@ -35,40 +35,69 @@ header {
     border-radius: 5px;
 }
 .carousel {
-    width: 80%;
-    margin: 20px auto;
     display: flex;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    height: 300px; /* Adjust height as needed */
+    overflow: hidden;
 }
+
 .carousel img {
-    
-        border-radius: 8px;
-        box-shadow: 0 5px 10px #00000026;
-        width: 50%;
-        padding: 20px;
-        aspect-ratio: 2 / 1;
-        max-width: 100%;
-        height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: none; /* Hide all images initially */
+    object-fit: contain; /* Ensure the image fits within the container */
 }
 .fast-moving {
     margin: 20px;
 }
 .items {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    display: grid;
+    min-height: 260px; /* Adjust based on your design */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Center align items horizontally */
+    align-items: start; /* Align items at the top */
+    margin: 20px auto;
+    max-width: 1200px; /* Limit the width of the grid */
 }
+
 .card {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     text-align: center;
-    width: 180px;
+    width: 100%; /* Ensure cards take full width of their grid cell */
+  ;/* Limit the maximum width of each card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
 .card img {
     width: 100px;
     height: 100px;
+    margin-bottom: 10px;
+    border-radius: 8px; /* Optional: Add rounded corners to images */
+}
+
+.card p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.card select {
+    padding: 5px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
 }
 .carousel-buttons {
     position: absolute;
@@ -168,6 +197,120 @@ button:hover {
     display: none;
 }
 
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add spacing between elements */
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #228B22;
+    font-size: 1.5rem;
+}
+
+.modal-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.modal-content .buy-button {
+    background: #228B22;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.modal-content .buy-button:hover {
+    background: #1e7a1e;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #228B22;
+}
+
+ /* Add this CSS to style the seller info and position the Buy Now button */
+ .seller-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.seller-details {
+    flex: 1;
+}
+
+.buy-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #45a049;
+}
+
+.quantity-select {
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 16px;
+}
+/* Add a fade-in animation for the modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 /* Map */
 #map {
     width: 90%;
@@ -175,6 +318,41 @@ button:hover {
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials {
+    padding: 2rem 1rem;
+    background-color:palegoldenrod;
+    text-align: center;
+}
+
+.testimonials h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #8D6E63;
+}
+
+.testimonial-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background: burlywood;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
 }
 
 /* Footer */
