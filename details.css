@@ -1,0 +1,61 @@
+/* Technique Details Section */
+.technique-details {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.technique-details img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.technique-details p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* YouTube Videos Section */
+.youtube-videos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.youtube-videos li {
+    margin: 10px 0;
+}
+
+.youtube-videos a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.youtube-videos a:hover {
+    text-decoration: underline;
+}
+
+/* Related Techniques Section */
+.more-like-this {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.related-technique {
+    display: inline-block;
+    background: #6a11cb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.related-technique:hover {
+    background: #552e7e;
+}

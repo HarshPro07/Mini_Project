@@ -1,0 +1,96 @@
+2. Example Backend with Node.js and Express
+Here’s an example of how you can set up a simple backend:
+
+Backend Code
+const express = require("express");
+const app = express();
+const port = 3000;
+
+// Mock data (replace this with a database in production)
+const data = {
+    categories: [
+        { id: 1, name: "Crop Production", description: "Learn about crop production techniques." },
+        { id: 2, name: "Soil Conservation", description: "Techniques for soil and water conservation." },
+        { id: 3, name: "Pest Management", description: "Manage pests effectively." },
+        { id: 4, name: "Livestock Management", description: "Efficient livestock management techniques." },
+        { id: 5, name: "Agroforestry", description: "Combine forestry and agriculture." },
+        { id: 6, name: "Smart Farming", description: "Use technology to optimize farming." }
+    ],
+    subcategories: [
+        { id: 1, category_id: 1, name: "Crop Rotation", description: "Improve soil fertility and reduce pests." },
+        { id: 2, category_id: 1, name: "Intercropping", description: "Grow multiple crops together for better yield." },
+        { id: 3, category_id: 2, name: "Soil Testing", description: "Analyze soil nutrients for better growth." },
+        { id: 4, category_id: 2, name: "Terrace Farming", description: "Prevent soil erosion on slopes." }
+        // Add more subcategories...
+    ],
+    videos: [
+        { id: 1, subcategory_id: 1, title: "Crop Rotation Basics", description: "Learn the basics of crop rotation.", thumbnail: "https://img.youtube.com/vi/example1/0.jpg", url: "https://www.youtube.com/watch?v=example1" },
+        { id: 2, subcategory_id: 1, title: "Benefits of Crop Rotation", description: "Advantages of crop rotation.", thumbnail: "https://img.youtube.com/vi/example2/0.jpg", url: "https://www.youtube.com/watch?v=example2" },
+        { id: 3, subcategory_id: 2, title: "Intercropping Techniques", description: "Learn about intercropping techniques.", thumbnail: "https://img.youtube.com/vi/example3/0.jpg", url: "https://www.youtube.com/watch?v=example3" },
+        { id: 4, subcategory_id: 2, title: "Advantages of Intercropping", description: "Benefits of intercropping.", thumbnail: "https://img.youtube.com/vi/example4/0.jpg", url: "https://www.youtube.com/watch?v=example4" }
+        // Add more videos...
+    ]
+};
+
+// API to fetch all categories
+app.get("/categories", (req, res) => {
+    res.json(data.categories);
+});
+
+// API to fetch subcategories for a category
+app.get("/categories/:id/subcategories", (req, res) => {
+    const categoryId = parseInt(req.params.id);
+    const subcategories = data.subcategories.filter(sub => sub.category_id === categoryId);
+    res.json(subcategories);
+});
+
+// API to fetch videos for a subcategory
+app.get("/subcategories/:id/videos", (req, res) => {
+    const subcategoryId = parseInt(req.params.id);
+    const videos = data.videos.filter(video => video.subcategory_id === subcategoryId);
+    res.json(videos);
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+
+
+3. Fetch Data Dynamically in the Frontend
+Once the backend is set up, you can fetch the data dynamically using fetch or axios in your frontend.
+
+Example Frontend Code
+document.addEventListener("DOMContentLoaded", async () => {
+    const categoryId = 1; // Example: Fetch subcategories for category ID 1
+    const subcategoryId = 1; // Example: Fetch videos for subcategory ID 1
+
+    // Fetch categories
+    const categories = await fetch("http://localhost:3000/categories").then(res => res.json());
+    console.log("Categories:", categories);
+
+    // Fetch subcategories for a category
+    const subcategories = await fetch(`http://localhost:3000/categories/${categoryId}/subcategories`).then(res => res.json());
+    console.log("Subcategories:", subcategories);
+
+    // Fetch videos for a subcategory
+    const videos = await fetch(`http://localhost:3000/subcategories/${subcategoryId}/videos`).then(res => res.json());
+    console.log("Videos:", videos);
+
+    // Dynamically populate the page with fetched data
+    // Example: Populate videos
+    const videoLinks = document.getElementById("video-links");
+    videos.forEach(video => {
+        const videoCard = document.createElement("div");
+        videoCard.classList.add("video-card");
+        videoCard.innerHTML = `
+            <img src="${video.thumbnail}" alt="${video.title}">
+            <div class="video-info">
+                <h3>${video.title}</h3>
+                <p>${video.description}</p>
+                <a href="${video.url}" target="_blank" class="watch-button">Watch on YouTube</a>
+            </div>
+        `;
+        videoLinks.appendChild(videoCard);
+    });
+});
