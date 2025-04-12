@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmMarket Hub</title>
+  <meta name="description" content="Connecting farmers to markets">
+  <link rel="stylesheet" href="selltest2.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <div class="navbar-logo">
+          <a href="index.html" class="logo-link">
+            <div class="logo-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-cart">
+                <circle cx="8" cy="21" r="1"></circle>
+                <circle cx="19" cy="21" r="1"></circle>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+              </svg>
+            </div>
+            <span class="logo-text">FarmMarket Hub</span>
+          </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="navbar-links desktop-nav">
+          <a href="home.html" class="nav-link">Home</a>
+          <a href="#" class="nav-link">Markets</a>
+          <a href="#" class="nav-link">Sell Products</a>
+          
+     
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-button">
+          <button id="menuToggle" class="menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menuIcon" class="show">
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="closeIcon" class="hide">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu hide">
+        <div class="mobile-menu-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="#" class="nav-link">Markets</a>
+          <a href="#" class="nav-link">Sell Products</a>
+          <a href="#" class="nav-link">About</a>
+          <a href="#" class="nav-link nav-button mobile-button">Login / Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Sell Your Farm Products at the Best Prices</h1>
+      <p class="hero-subtitle">
+        Connect directly with markets at local, taluka, district, and online levels
+      </p>
+      <div class="hero-buttons">
+        <button class="button button-white">Sell Products</button>
+        <button class="button button-yellow">Check Market Prices</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container main-content">
+    <!-- Market Selector -->
+    <div class="market-selector">
+      <h2 class="section-title">Select Market</h2>
+      <div class="market-pills">
+        <button class="market-pill market-pill-active" data-market="local">Local</button>
+        <button class="market-pill" data-market="taluka">Taluka</button>
+        <button class="market-pill" data-market="district">District</button>
+        <button class="market-pill" data-market="online">Online</button>
+      </div>
+    </div>
+    
+    <!-- Product Categories -->
+    <div class="product-categories">
+      <div class="categories-header">
+        <h2 class="section-title">Product Categories</h2>
+        <button id="viewAllButton" class="view-all-button hide">View All</button>
+      </div>
+      
+      <div class="categories-grid">
+        <div class="category-card" data-category="vegetables">
+          <div class="category-content">
+            <div class="category-icon">🥕</div>
+            <h3 class="category-title">Vegetables</h3>
+          </div>
+        </div>
+        <div class="category-card" data-category="fruits">
+          <div class="category-content">
+            <div class="category-icon">🍎</div>
+            <h3 class="category-title">Fruits</h3>
+          </div>
+        </div>
+        <div class="category-card" data-category="grains">
+          <div class="category-content">
+            <div class="category-icon">🌾</div>
+            <h3 class="category-title">Grains</h3>
+          </div>
+        </div>
+        <div class="category-card" data-category="pulses">
+          <div class="category-content">
+            <div class="category-icon">🌱</div>
+            <h3 class="category-title">Pulses</h3>
+          </div>
+        </div>
+        <div class="category-card" data-category="dairy">
+          <div class="category-content">
+            <div class="category-icon">🥛</div>
+            <h3 class="category-title">Dairy</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Sell Product Modal -->
+    <button class="button button-white" id="sellProductsButton">Sell Products</button>
+
+  
+     <div id="sellProductModal" class="modal hide">
+    <div class="modal-content">
+      <span class="close-button" id="closeModal">&times;</span>
+      <h2>Sell Your Product</h2>
+      <form id="sellProductForm">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+  
+        <label for="productCategory">Category:</label>
+        <select id="productCategory" name="productCategory" required>
+          <option value="vegetables">Vegetables</option>
+          <option value="fruits">Fruits</option>
+          <option value="grains">Grains</option>
+          <option value="pulses">Pulses</option>
+          <option value="dairy">Dairy</option>
+        </select>
+  
+        <label for="productPrice">Price (₹):</label>
+        <input type="number" id="productPrice" name="productPrice" placeholder="Enter price per unit" required>
+  
+        <label for="productQuantity">Quantity:</label>
+        <input type="number" id="productQuantity" name="productQuantity" placeholder="Enter quantity" required>
+  
+        <label for="productDescription">Description:</label>
+        <textarea id="productDescription" name="productDescription" placeholder="Enter product description" rows="4"></textarea>
+  
+        <button type="submit" class="button button-yellow">Submit</button>
+      </form>
+    </div>
+  </div>
+    <div class="price-section">
+      <h2 id="priceTitle" class="section-title">All Products Prices <span class="market-highlight">in Local Market</span></h2>
+      
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+      </div>
+      
+      <div id="productGrid" class="product-grid">
+        <!-- Product cards will be dynamically added here -->
+      </div>
+      
+      <div id="noProductsMessage" class="no-products-message hide">
+        <p>No products found. Try adjusting your search or category.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3 class="footer-title">FarmMarket Hub</h3>
+          <p class="footer-text">
+            Connecting farmers directly to markets at local, taluka, district, and online levels, providing real-time price information.
+          </p>
+        </div>
+        
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Markets</a></li>
+            <li><a href="#">Sell Products</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+      
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 FarmMarket Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="selltest2.js"></script>
+</body>
+</html>
